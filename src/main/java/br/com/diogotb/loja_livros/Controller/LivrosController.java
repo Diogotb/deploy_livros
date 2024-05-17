@@ -1,6 +1,5 @@
 package br.com.diogotb.loja_livros.Controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,9 +10,8 @@ import br.com.diogotb.loja_livros.Repository.LivrosRepository;
 import br.com.diogotb.loja_livros.Model.Livro;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Controller
@@ -31,7 +29,7 @@ public class LivrosController {
     }
 
     @PostMapping("/livros-add")
-    public ModelAndView create(@RequestBody Livro livro) {
+    public ModelAndView create(Livro livro) {
         ModelAndView mv = new ModelAndView("livros-add");
         livrosRepository.save(livro);
         mv.setViewName("redirect:/livros-list");
